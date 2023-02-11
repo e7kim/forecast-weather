@@ -1,5 +1,5 @@
 # forecast-weather
-This library easily obtains weather data across various locations and dates.
+This python library easily obtains weather data across various locations and dates.
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
