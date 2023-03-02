@@ -3,5 +3,19 @@ This python library easily obtains weather data across various locations and dat
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
+[![](https://img.shields.io/github/issues/e7kim/forecast-weather)](https://github.com/e7kim/forecast-weather/issues)
+
 # Overview
 `forecast-weather` is a library that allows a user to easily obtain weather data (temperatures, pressure, humidity, precipitation, wind, cloud coverage, etc.) across various locations and dates. The library will make calls to a public weather API and will organize the returned data for ease of use. Some extra functionality in consideration include some form of visual plot/graph generation.
+
+## Details
+This project is a pure python project using modern tooling. It uses a `Makefile` as a command registry, with the following commands:
+- `make`: list available commands
+- `make develop`: install and build this library and its dependencies using `pip`
+- `make build`: build the library using `setuptools`
+- `make lint`: perform static analysis of this library with `flake8` and `black`
+- `make format`: autoformat this library using `black`
+- `make annotate`: run type checking using `mypy`
+- `make test`: run automated tests with `pytest`
+- `make coverage`: run automated tests with `pytest` and collect coverage information
+- `make dist`: package library for distribution
