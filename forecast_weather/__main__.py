@@ -1,4 +1,4 @@
-from .weather import print_hello
+from .weather import show_current
 
 if __name__ == "__main__":
-    print_hello()
+    show_current("10027", "1")
