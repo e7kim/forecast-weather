@@ -11,6 +11,20 @@ This python library easily obtains weather data across various locations and dat
 # Overview
 `forecast-weather` is a library that allows a user to easily obtain weather data (temperatures, pressure, humidity, precipitation, wind, cloud coverage, etc.) across various locations and dates. The library will make calls to a public weather API and will organize the returned data for ease of use. Some extra functionality in consideration include some form of visual plot/graph generation.
 
+## Install
+```
+pip install forecast-weather
+```
+
+## API Key
+Go to [weatherapi.com](https://www.weatherapi.com/) to register an account for your free api key. Create a new file **./api_key** and paste your api key here.
+
+## Usage
+```
+import forecast_weather as fw
+fw.show_current(location = "10027" , days="1")
+```
+
 ## Details
 This project is a pure python project using modern tooling. It uses a `Makefile` as a command registry, with the following commands:
 - `make`: list available commands
