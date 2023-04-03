@@ -21,7 +21,11 @@ Go to [weatherapi.com](https://www.weatherapi.com/) to register an account for y
 ## Usage
 ```
 import forecast_weather as fw
-fw.show_current(location = "10027" , days="1")
+
+fw.show_current(location = "10027")
+fw.show_forecast(location = "10027", days = "2")
+current = fw.get_current(location = "10027")
+forecast = fw.get_forecast(location = "10027", days = "3")
 ```
 
 ## Details
