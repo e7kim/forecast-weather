@@ -41,7 +41,10 @@ def show_forecast(location: str, days: str):
     data = get_weather(url)
     for i in range(len(data['forecast']['forecastday'])):
         print(f"{data['forecast']['forecastday'][i]['date']} weather forecast of {data['location']['name']} is: ")
-        print(f"Average temperature: {data['forecast']['forecastday'][i]['day']['avgtemp_f']} F/ {data['forecast']['forecastday'][i]['day']['avgtemp_c']} C")
+        print(
+            f"Average temperature: {data['forecast']['forecastday'][i]['day']['avgtemp_f']} F/ "
+            + f"{data['forecast']['forecastday'][i]['day']['avgtemp_c']} C",
+        )
         print(f"Condition: {data['forecast']['forecastday'][i]['day']['condition']['text']}")
         print(f"Max wind speed: {data['forecast']['forecastday'][i]['day']['maxwind_mph']} mph")
         print(f"Total precipitation: {data['forecast']['forecastday'][i]['day']['totalprecip_in']} in")

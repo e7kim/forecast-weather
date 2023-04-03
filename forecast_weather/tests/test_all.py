@@ -90,6 +90,7 @@ def test_show_current_NYC(mock_print):
                 call("UV: 3.0"),
             ]
 
+
 def test_get_current_NYC():
     with patch('builtins.open', mock_open(read_data="mock_key")) as mock_file:
         with patch('requests.get') as r_mock:
@@ -124,6 +125,7 @@ def test_get_current_NYC():
                 "cloud": 100,
                 "uv": 3.0,
             }
+
 
 @patch('builtins.print')
 def test_show_forecast_NYC(mock_print):
@@ -160,9 +162,9 @@ def test_show_forecast_NYC(mock_print):
                                     "condition": {
                                         "text": "Partly cloudy",
                                         "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
-                                        "code": 1003
+                                        "code": 1003,
                                     },
-                                    "uv": 3.0
+                                    "uv": 3.0,
                                 },
                             },
                             {
@@ -190,13 +192,13 @@ def test_show_forecast_NYC(mock_print):
                                     "condition": {
                                         "text": "Cloudy",
                                         "icon": "//cdn.weatherapi.com/weather/64x64/day/119.png",
-                                        "code": 1006
+                                        "code": 1006,
                                     },
-                                    "uv": 3.0
+                                    "uv": 3.0,
                                 },
-                            }
+                            },
                         ]
-                    }
+                    },
                 },
             )
             url = build_url(get_api_key(), "10027", "2")
@@ -254,9 +256,9 @@ def test_get_forecast_NYC():
                                     "condition": {
                                         "text": "Partly cloudy",
                                         "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
-                                        "code": 1003
+                                        "code": 1003,
                                     },
-                                    "uv": 3.0
+                                    "uv": 3.0,
                                 },
                             },
                             {
@@ -284,13 +286,13 @@ def test_get_forecast_NYC():
                                     "condition": {
                                         "text": "Cloudy",
                                         "icon": "//cdn.weatherapi.com/weather/64x64/day/119.png",
-                                        "code": 1006
+                                        "code": 1006,
                                     },
-                                    "uv": 3.0
+                                    "uv": 3.0,
                                 },
-                            }
+                            },
                         ]
-                    }
+                    },
                 },
             )
             url = build_url(get_api_key(), "10027", "2")
@@ -304,7 +306,7 @@ def test_get_forecast_NYC():
                     'maxwind_mph': 15.4,
                     'totalprecip_in': 0.0,
                     'avghumidity': 63.0,
-                    'uv': 3.0
+                    'uv': 3.0,
                 },
                 '2023-04-04': {
                     'avgtemp_f': 55.5,
@@ -313,6 +315,6 @@ def test_get_forecast_NYC():
                     'maxwind_mph': 8.7,
                     'totalprecip_in': 0.0,
                     'avghumidity': 78.0,
-                    'uv': 3.0
-                }
+                    'uv': 3.0,
+                },
             }
