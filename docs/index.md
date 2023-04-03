@@ -11,4 +11,6 @@
 ```eval_rst
 .. note::
     We can still mix rst, which we'll use for autodocumentation
+
+.. autofunction:: forecast_weather.show_current
 ```
