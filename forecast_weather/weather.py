@@ -17,7 +17,7 @@ def show_current(location: str):
     """Prints the current weather conditions at a given location.
 
     Args:
-        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode, 
+        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
             IP address, Latitude/Longitude (decimal degree) or city name.
 
     Returns:
@@ -45,12 +45,12 @@ def get_current(location: str):
     """Returns the current weather conditions at a given location.
 
     Args:
-        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode, 
+        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
             IP address, Latitude/Longitude (decimal degree) or city name.
 
     Returns:
-        dict: A hash map containing the name of the location, current temperature in fahrenheit/celsius, 
-        weather condition, wind speed, air pressure, precipitation, humidity, cloud coverage, and UV of 
+        dict: A hash map containing the name of the location, current temperature in fahrenheit/celsius,
+        weather condition, wind speed, air pressure, precipitation, humidity, cloud coverage, and UV of
         the specified location.
 
     Note:
@@ -70,7 +70,7 @@ def show_forecast(location: str, days: str):
     """Prints the forecast weather conditions at a given location across a given number of days.
 
     Args:
-        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode, 
+        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
             IP address, Latitude/Longitude (decimal degree) or city name.
         days (str): Value from 1 to 10 that specifies the number of days to forecast. There may be
             tighter upper limits depending on the particular plan one's api key is from. See
@@ -103,15 +103,15 @@ def get_forecast(location: str, days: str):
     """Returns the forecast weather conditions at a given location.
 
     Args:
-        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode, 
+        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
             IP address, Latitude/Longitude (decimal degree) or city name.
         days (str): Value from 1 to 10 that specifies the number of days to forecast. There may be
             tighter upper limits depending on the particular plan one's api key is from. See
             https://www.weatherapi.com/pricing.aspx for more information.
 
     Returns:
-        dict: A hash map containing the name of the location, forecast temperature in fahrenheit/celsius, 
-        weather condition, wind speed, air pressure, precipitation, humidity, cloud coverage, and UV of 
+        dict: A hash map containing the name of the location, forecast temperature in fahrenheit/celsius,
+        weather condition, wind speed, air pressure, precipitation, humidity, cloud coverage, and UV of
         the specified location across the time frame.
 
     Note:
