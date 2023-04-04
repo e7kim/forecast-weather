@@ -14,6 +14,20 @@ def get_weather(url: str):
 
 
 def show_current(location: str):
+    """Prints the current weather conditions at a given location.
+
+    Args:
+        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
+            IP address, Latitude/Longitude (decimal degree) or city name.
+
+    Returns:
+        None: See note for the printing side effect.
+
+    Note:
+        Prints the current temperature in fahrenheit/celsius, weather condition, wind speed, air pressure,
+        precipitation, humidity, cloud coverage, and UV of the specified location.
+
+    """
     url = build_url(get_api_key(), location, 1)
     data = get_weather(url)
     print(f"Current weather at {data['location']['name']} is: ")
@@ -28,6 +42,22 @@ def show_current(location: str):
 
 
 def get_current(location: str):
+    """Returns the current weather conditions at a given location.
+
+    Args:
+        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
+            IP address, Latitude/Longitude (decimal degree) or city name.
+
+    Returns:
+        dict: A hash map containing the name of the location, current temperature in fahrenheit/celsius,
+        weather condition, wind speed, air pressure, precipitation, humidity, cloud coverage, and UV of
+        the specified location.
+
+    Note:
+        In regards to accessing the weather data from the returned dictionary, the relevant keys are name,
+        condition, temp_c, temp_f, wind_mph, pressure_mb, precip_in, humidity, cloud, uv.
+
+    """
     url = build_url(get_api_key(), location, 1)
     data = get_weather(url)
     curr = {'name': data['location']['name'], 'condition': data['current']['condition']['text']}
@@ -37,6 +67,23 @@ def get_current(location: str):
 
 
 def show_forecast(location: str, days: str):
+    """Prints the forecast weather conditions at a given location across a given number of days.
+
+    Args:
+        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
+            IP address, Latitude/Longitude (decimal degree) or city name.
+        days (str): Value from 1 to 10 that specifies the number of days to forecast. There may be
+            tighter upper limits depending on the particular plan one's api key is from. See
+            https://www.weatherapi.com/pricing.aspx for more information.
+
+    Returns:
+        None: See note for the printing side effect.
+
+    Note:
+        Prints the forecast average temperature in fahrenheit/celsius, weather condition, max wind speed,
+        total precipitation, average humidity, and UV of the specified location across the time frame.
+
+    """
     url = build_url(get_api_key(), location, days)
     data = get_weather(url)
     for i in range(len(data['forecast']['forecastday'])):
@@ -53,6 +100,26 @@ def show_forecast(location: str, days: str):
 
 
 def get_forecast(location: str, days: str):
+    """Returns the forecast weather conditions at a given location.
+
+    Args:
+        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
+            IP address, Latitude/Longitude (decimal degree) or city name.
+        days (str): Value from 1 to 10 that specifies the number of days to forecast. There may be
+            tighter upper limits depending on the particular plan one's api key is from. See
+            https://www.weatherapi.com/pricing.aspx for more information.
+
+    Returns:
+        dict: A hash map containing the name of the location, forecast temperature in fahrenheit/celsius,
+        weather condition, wind speed, air pressure, precipitation, humidity, cloud coverage, and UV of
+        the specified location across the time frame.
+
+    Note:
+        In regards to accessing the weather data from the returned dictionary, the relevant keys are name
+        and the dates in the format YYYY-MM-DD. The dates access a nested dictionary where the relevant
+        keys are avgtemp_f, avgtemp_c, condition, maxwind_mph, totalprecip_in, avghumidity, and uv.
+
+    """
     url = build_url(get_api_key(), location, days)
     data = get_weather(url)
     forecast = {'name': data['location']['name']}
