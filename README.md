@@ -19,7 +19,7 @@ pip install forecast-weather
 Go to [weatherapi.com](https://www.weatherapi.com/) to register an account for your free api key. Create a new file **./api_key** and paste your api key here.
 
 ## Usage
-```
+```python
 import forecast_weather as fw
 
 fw.show_current(location = "10027")
@@ -27,6 +27,31 @@ fw.show_forecast(location = "10027", days = "2")
 current = fw.get_current(location = "10027")
 forecast = fw.get_forecast(location = "10027", days = "3")
 ```
+
+## Example
+Running the following code
+```python
+import forecast_weather as fw
+
+fw.show_current(location = "10027")
+```
+Outputs something like this to the console
+```
+Current weather at New York is: 
+Temperature: 68.0 F/ 20.0 C
+Condition: Overcast
+Wind speed: 2.2 mph
+Pressure: 1017.0 mb
+Precipitation: 0.0 in
+Humidity: 55%
+Cloud coverage: 100%
+UV: 4.0
+```
+
+## Demo
+
+![]()
+
 
 ## Details
 This project is a pure python project using modern tooling. It uses a `Makefile` as a command registry, with the following commands:
