@@ -36,4 +36,4 @@ def setup(app):
     }, True)
     app.add_transform(AutoStructify)
 
-sys.path.append(os.path.abspath('./forecast_weather'))
+sys.path.insert(0, os.path.abspath('..'))
