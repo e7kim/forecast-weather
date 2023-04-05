@@ -50,7 +50,7 @@ UV: 4.0
 
 ## Demo
 
-![]()
+![](https://raw.githubusercontent.com/e7kim/forecast-weather/main/docs/img/demo.gif)
 
 
 ## Details
