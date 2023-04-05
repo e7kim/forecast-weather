@@ -5,7 +5,7 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-import sphinx_rtd_theme
+import sphinx_rtd_theme, sys, os
 from recommonmark.transform import AutoStructify
 
 project = 'forecast-weather'
@@ -35,3 +35,5 @@ def setup(app):
         'auto_toc_tree_section': 'Contents',
     }, True)
     app.add_transform(AutoStructify)
+
+sys.path.append(os.path.abspath('./forecast_weather'))
