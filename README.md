@@ -52,7 +52,6 @@ UV: 4.0
 
 ![](https://raw.githubusercontent.com/e7kim/forecast-weather/main/docs/img/demo.gif)
 
-
 ## Details
 This project is a pure python project using modern tooling. It uses a `Makefile` as a command registry, with the following commands:
 - `make`: list available commands
