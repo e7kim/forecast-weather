@@ -115,6 +115,10 @@ forecast = fw.get_forecast(location = "10027", days = "3")
     }
     ```
 
+## Demo
+
+![](https://raw.githubusercontent.com/e7kim/forecast-weather/main/docs/img/demo.gif)
+
 ## API Documentation
 ```eval_rst
 .. toctree::
