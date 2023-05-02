@@ -24,11 +24,11 @@ def show_current(location: str):
         None: See note for the printing side effect.
 
     Note:
-        Prints the current temperature in fahrenheit/celsius, weather condition, wind speed, air pressure,
+        Prints the current temperature in Fahrenheit/Celsius, weather condition, wind speed, air pressure,
         precipitation, humidity, cloud coverage, and UV of the specified location.
 
     """
-    url = build_url(get_api_key(), location, 1)
+    url = build_url(get_api_key(), location, "1")
     data = get_weather(url)
     print(f"Current weather at {data['location']['name']} is: ")
     print(f"Temperature: {data['current']['temp_f']} F/ {data['current']['temp_c']} C")
@@ -49,7 +49,7 @@ def get_current(location: str):
             IP address, Latitude/Longitude (decimal degree) or city name.
 
     Returns:
-        dict: A hash map containing the name of the location, current temperature in fahrenheit/celsius,
+        dict: A hash map containing the name of the location, current temperature in Fahrenheit/Celsius,
         weather condition, wind speed, air pressure, precipitation, humidity, cloud coverage, and UV of
         the specified location.
 
@@ -58,7 +58,7 @@ def get_current(location: str):
         condition, temp_c, temp_f, wind_mph, pressure_mb, precip_in, humidity, cloud, uv.
 
     """
-    url = build_url(get_api_key(), location, 1)
+    url = build_url(get_api_key(), location, "1")
     data = get_weather(url)
     curr = {'name': data['location']['name'], 'condition': data['current']['condition']['text']}
     for key in ['temp_c', 'temp_f', 'wind_mph', 'pressure_mb', 'precip_in', 'humidity', 'cloud', 'uv']:
@@ -73,14 +73,14 @@ def show_forecast(location: str, days: str):
         location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
             IP address, Latitude/Longitude (decimal degree) or city name.
         days (str): Value from 1 to 10 that specifies the number of days to forecast. There may be
-            tighter upper limits depending on the particular plan one's api key is from. See
+            tighter upper limits depending on the particular plan one's API key is from. See
             https://www.weatherapi.com/pricing.aspx for more information.
 
     Returns:
         None: See note for the printing side effect.
 
     Note:
-        Prints the forecast average temperature in fahrenheit/celsius, weather condition, max wind speed,
+        Prints the forecast average temperature in Fahrenheit/Celsius, weather condition, max wind speed,
         total precipitation, average humidity, and UV of the specified location across the time frame.
 
     """
@@ -106,11 +106,11 @@ def get_forecast(location: str, days: str):
         location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
             IP address, Latitude/Longitude (decimal degree) or city name.
         days (str): Value from 1 to 10 that specifies the number of days to forecast. There may be
-            tighter upper limits depending on the particular plan one's api key is from. See
+            tighter upper limits depending on the particular plan one's API key is from. See
             https://www.weatherapi.com/pricing.aspx for more information.
 
     Returns:
-        dict: A hash map containing the name of the location, forecast temperature in fahrenheit/celsius,
+        dict: A hash map containing the name of the location, forecast temperature in Fahrenheit/Celsius,
         weather condition, wind speed, air pressure, precipitation, humidity, cloud coverage, and UV of
         the specified location across the time frame.
 
