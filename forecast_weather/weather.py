@@ -1,4 +1,5 @@
 import requests
+import matplotlib.pyplot as plt
 
 
 def get_api_key() -> str:
@@ -134,3 +135,50 @@ def get_forecast(location: str, days: str):
         day['uv'] = data['forecast']['forecastday'][i]['day']['uv']
         forecast[data['forecast']['forecastday'][i]['date']] = day
     return forecast
+
+
+def visualize_forecast(location: str, days: str):
+    """Plots the forecast weather conditions at a given location across a given number of days.
+
+    Args:
+        location (str): Query for a location, could be a US Zipcode, UK Postcode, Canada Postalcode,
+            IP address, Latitude/Longitude (decimal degree) or city name.
+        days (str): Value from 1 to 10 that specifies the number of days to forecast. There may be
+            tighter upper limits depending on the particular plan one's API key is from. See
+            https://www.weatherapi.com/pricing.aspx for more information.
+
+    Returns:
+        None: See note for the plotting side effect.
+
+    Note:
+        Plots the forecast average temperature in Fahrenheit/Celsius, and total precipitation of the
+        specified location across the time frame.
+
+    """
+    forecast = get_forecast(location, days)
+    location = forecast.pop("name")
+
+    dates = sorted(forecast.keys())
+    fahrenheit_forecast = [forecast[date]["avgtemp_f"] for date in dates]
+    celsius_forecast = [forecast[date]["avgtemp_c"] for date in dates]
+    rain_forecast = [forecast[date]["totalprecip_in"] for date in dates]
+
+    dates = [date[5:] for date in dates]
+
+    plt.subplot(3, 1, 1)
+    plt.title(f"{days} day forecast for {location}")
+    plt.xlabel("Date")
+    plt.ylabel("Fahrenheit")
+    plt.plot(dates, fahrenheit_forecast, '-ro')
+
+    plt.subplot(3, 1, 2)
+    plt.xlabel("Date")
+    plt.ylabel("Celsius")
+    plt.plot(dates, celsius_forecast, '-go')
+
+    plt.subplot(3, 1, 3)
+    plt.xlabel("Date")
+    plt.ylabel("Rain (inches)")
+    plt.plot(dates, rain_forecast, '-bo')
+
+    plt.show()

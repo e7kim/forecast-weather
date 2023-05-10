@@ -318,3 +318,9 @@ def test_get_forecast_NYC():
                     'uv': 3.0,
                 },
             }
+
+
+@patch('forecast_weather.plt.show')
+def test_visualize_forecast_NYC(mock_show):
+    visualize_forecast("10027", "2")
+    mock_show.assert_called()
