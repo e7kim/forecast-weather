@@ -318,3 +318,81 @@ def test_get_forecast_NYC():
                     'uv': 3.0,
                 },
             }
+
+
+@patch('forecast_weather.plt.show')
+def test_visualize_forecast_NYC(mock_show):
+    with patch('builtins.open', mock_open(read_data="mock_key")) as mock_file:
+        with patch('requests.get') as r_mock:
+            r_mock.return_value = Mock(
+                status_code=200,
+                json=lambda: {
+                    "location": {"name": "New York"},
+                    "forecast": {
+                        "forecastday": [
+                            {
+                                "date": "2023-04-03",
+                                "date_epoch": 1680480000,
+                                "day": {
+                                    "maxtemp_c": 17.0,
+                                    "maxtemp_f": 62.6,
+                                    "mintemp_c": 2.7,
+                                    "mintemp_f": 36.9,
+                                    "avgtemp_c": 7.8,
+                                    "avgtemp_f": 46.0,
+                                    "maxwind_mph": 15.4,
+                                    "maxwind_kph": 24.8,
+                                    "totalprecip_mm": 0.0,
+                                    "totalprecip_in": 0.0,
+                                    "totalsnow_cm": 0.0,
+                                    "avgvis_km": 10.0,
+                                    "avgvis_miles": 6.0,
+                                    "avghumidity": 63.0,
+                                    "daily_will_it_rain": 0,
+                                    "daily_chance_of_rain": 0,
+                                    "daily_will_it_snow": 0,
+                                    "daily_chance_of_snow": 0,
+                                    "condition": {
+                                        "text": "Partly cloudy",
+                                        "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+                                        "code": 1003,
+                                    },
+                                    "uv": 3.0,
+                                },
+                            },
+                            {
+                                "date": "2023-04-04",
+                                "date_epoch": 1680566400,
+                                "day": {
+                                    "maxtemp_c": 19.1,
+                                    "maxtemp_f": 66.4,
+                                    "mintemp_c": 6.1,
+                                    "mintemp_f": 43.0,
+                                    "avgtemp_c": 13.1,
+                                    "avgtemp_f": 55.5,
+                                    "maxwind_mph": 8.7,
+                                    "maxwind_kph": 14.0,
+                                    "totalprecip_mm": 0.0,
+                                    "totalprecip_in": 0.0,
+                                    "totalsnow_cm": 0.0,
+                                    "avgvis_km": 10.0,
+                                    "avgvis_miles": 6.0,
+                                    "avghumidity": 78.0,
+                                    "daily_will_it_rain": 0,
+                                    "daily_chance_of_rain": 0,
+                                    "daily_will_it_snow": 0,
+                                    "daily_chance_of_snow": 0,
+                                    "condition": {
+                                        "text": "Cloudy",
+                                        "icon": "//cdn.weatherapi.com/weather/64x64/day/119.png",
+                                        "code": 1006,
+                                    },
+                                    "uv": 3.0,
+                                },
+                            },
+                        ]
+                    },
+                },
+            )
+            visualize_forecast("10027", "2")
+            mock_show.assert_called()
